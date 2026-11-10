@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Problems — Complete Solutions | حلول كاملة</title>
+<style>
+  :root{
+    --blue:#1e5fa8; --blue2:#3b82c4; --green:#2e7d32;
+    --ink:#1c2430; --muted:#5a6b7d; --line:#dbe7f3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:#eef2f7; color:var(--ink);
+    font-family:"Segoe UI", Tahoma, Arial, sans-serif; line-height:1.7;
+  }
+  .container{
+    max-width:1000px; margin:26px auto; background:#fff;
+    padding:38px 48px 52px; border-radius:14px;
+    box-shadow:0 6px 28px rgba(15,40,80,.10);
+  }
+  h1{color:var(--blue); font-size:2em; margin:0 0 6px; text-align:center; line-height:1.35;}
+  .subtitle{text-align:center; color:var(--muted); margin:0 0 6px; font-size:1.02em;}
+  .source{text-align:center; color:#8a99aa; font-size:.86em; margin-bottom:22px;}
+  h2.section{
+    color:#fff; background:linear-gradient(90deg,var(--blue),var(--blue2));
+    padding:11px 18px; border-radius:9px; margin:42px 0 8px; font-size:1.28em;
+    direction:ltr; text-align:left;
+  }
+  h3{
+    color:var(--blue); border-bottom:2px solid var(--line);
+    padding-bottom:7px; margin:36px 0 10px; font-size:1.16em;
+  }
+  .topic{
+    font-size:.55em; background:#e3f2fd; color:#1565c0;
+    padding:3px 11px; border-radius:20px; vertical-align:middle;
+    margin-inline-start:10px; font-weight:600; white-space:nowrap;
+  }
+  .en{direction:ltr; text-align:left;}
+  .ar{direction:rtl; text-align:right;}
+  .qbox{
+    border:1px solid #e3ebf5; border-radius:10px;
+    padding:12px 18px; margin:10px 0 16px; background:#fbfdff;
+  }
+  .qbox .en{margin:0 0 6px;}
+  .qbox .ar{margin:0;}
+  .step{
+    background:#f7fbff; border-inline-start:4px solid #64a6e8;
+    padding:11px 17px; margin:12px 0; border-radius:0 9px 9px 0;
+  }
+  .step-title{
+    font-weight:700; color:#1565c0; margin-bottom:5px;
+    font-size:.94em; letter-spacing:.2px;
+    direction:ltr; text-align:left;
+  }
+  .step p{margin:4px 0;}
+  .answer{
+    background:#e8f5e9; border:1px solid #81c784;
+    border-radius:9px; padding:12px 17px; margin:16px 0;
+  }
+  .answer p{margin:4px 0;}
+  .note{
+    background:#fff8e1; border:1px solid #ffcc80;
+    border-radius:9px; padding:10px 15px; margin:13px 0;
+  }
+  .note p{margin:4px 0;}
+  .math{
+    direction:ltr; unicode-bidi:isolate;
+    font-family:"Cambria Math","Times New Roman",serif; white-space:normal;
+  }
+  .eq{
+    direction:ltr; text-align:center; font-family:"Cambria Math","Times New Roman",serif;
+    font-size:1.07em; margin:9px 0; background:#fafcff; padding:7px; border-radius:6px;
+  }
+  pre.eq{
+    direction:ltr; text-align:left; font-family:Consolas,"Courier New",monospace;
+    background:#f6f9fc; padding:10px 14px; border-radius:7px;
+    border:1px solid #e2ebf5; overflow-x:auto; font-size:.95em; line-height:1.45;
+  }
+  table.mat{
+    display:inline-table; border-collapse:collapse;
+    border-left:2px solid #222; border-right:2px solid #222;
+    margin:0 6px; vertical-align:middle; direction:ltr;
+  }
+  table.mat td{
+    padding:2px 12px; text-align:center;
+    font-family:"Cambria Math",serif;
+  }
+  table.summary{width:100%; border-collapse:collapse; font-size:.92em; margin-top:16px;}
+  table.summary th, table.summary td{border:1px solid #cfd8e3; padding:8px 10px; vertical-align:top;}
+  table.summary th{background:#eaf2fb; color:#123;}
+  table.summary td.q{text-align:center; font-weight:700; white-space:nowrap;}
+  .btn{
+    display:inline-block; margin:0 auto 18px; padding:8px 20px;
+    background:var(--blue); color:#fff; border:none; border-radius:8px;
+    font-size:.95em; cursor:pointer;
+  }
+  .center{text-align:center;}
+  @media print{
+    body{background:#fff; font-size:10.5pt; line-height:1.5;}
+    .container{box-shadow:none; margin:0; padding:0 8mm; max-width:none;}
+    .noprint{display:none;}
+    h1{font-size:1.6em;}
+    h2.section{font-size:1.15em; margin-top:24px; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    h3{margin-top:20px;}
+    .step{margin:7px 0; padding:7px 11px;}
+    .answer{margin:9px 0; padding:8px 12px;}
+    .qbox{margin:6px 0 10px; padding:8px 12px;}
+    .step,.answer,.note,.qbox{break-inside:avoid;}
+    table.summary{font-size:.85em;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Practice Problems — Complete Solutions<br><span style="font-size:.82em">حلول كاملة لمسائل التدريب</span></h1>
+<p class="subtitle">20 questions with full step-by-step working in English and Arabic<br>عشرون سؤالًا مع خطوات الحل الكاملة بالإنجليزية والعربية</p>
+<p class="source">Source: Practice_Problems.pdf (2 pages) &nbsp;•&nbsp; Partial fractions &nbsp;•&nbsp; Polynomials &nbsp;•&nbsp; Binomial expansion &nbsp;•&nbsp; Matrices</p>
+
+<div class="center noprint">
+<button class="btn" onclick="window.print()">Print / طباعة</button>
+<a class="btn" style="text-decoration:none; margin-inline-start:8px" href="Practice_Problems_Solutions_AR_EN.pdf" download>Download PDF / تحميل PDF</a>
+</div>
+
+<div class="note">
+<p class="en"><b>How to read this document:</b> Each question is stated in English and Arabic. Every step gives the English explanation first, then the same step in Arabic. Final answers are in green boxes.</p>
+<p class="ar"><b>طريقة قراءة الملف:</b> كل سؤال مكتوب بالإنجليزية والعربية. كل خطوة يظهر شرحها بالإنجليزية أولًا ثم نفس الخطوة بالعربية. الإجابات النهائية موضوعة في صناديق خضراء.</p>
+</div>
+
+<h2 class="section">Formulas used / القوانين المستخدمة</h2>
+
+<div class="step">
+<div class="step-title">1. Partial fractions / الكسور الجزئية</div>
+<p class="en">A proper rational function (degree of numerator &lt; degree of denominator) is split according to the factors of the denominator:</p>
+<p class="ar">يُحلَّل الكسر النسبي الصحيح (درجة البسط أقل من درجة المقام) حسب عوامل المقام:</p>
+<p class="en">• Distinct linear factors: <span class="math">A/(x−a) + B/(x−b)</span>. &nbsp; • Repeated linear factor: <span class="math">A/(x−a) + B/(x−a)²</span>. &nbsp; • Irreducible quadratic: <span class="math">(Ax+B)/(x²+c)</span>.</p>
+<p class="ar">• عوامل خطية مختلفة: <span class="math">A/(x−a) + B/(x−b)</span>. &nbsp; • عامل خطي مكرر: <span class="math">A/(x−a) + B/(x−a)²</span>. &nbsp; • عامل تربيعي غير قابل للتحليل: <span class="math">(Ax+B)/(x²+c)</span>.</p>
+<p class="en">If the numerator degree is greater than or equal to the denominator degree, divide first (polynomial long division).</p>
+<p class="ar">إذا كانت درجة البسط أكبر من أو تساوي درجة المقام، نقسم أولًا (قسمة كثيرة الحدود المطولة).</p>
+</div>
+
+<div class="step">
+<div class="step-title">2. Remainder and factor theorems / نظرية الباقي والعامل</div>
+<p class="en">The remainder when <span class="math">f(x)</span> is divided by <span class="math">(x−a)</span> is <span class="math">f(a)</span>. Also, <span class="math">(x−a)</span> is a factor of <span class="math">f(x)</span> exactly when <span class="math">f(a)=0</span>.</p>
+<p class="ar">الباقي عند قسمة <span class="math">f(x)</span> على <span class="math">(x−a)</span> هو <span class="math">f(a)</span>. ويكون <span class="math">(x−a)</span> عاملًا لـ <span class="math">f(x)</span> إذا وفقط إذا كان <span class="math">f(a)=0</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">3. Transforming roots / تحويل الجذور</div>
+<p class="en">To obtain an equation whose roots are the old roots increased by <span class="math">k</span>, put <span class="math">y = x + k</span>, so <span class="math">x = y − k</span>, and substitute into the original equation.</p>
+<p class="ar">للحصول على معادلة جذورها تساوي الجذور القديمة مضافة إليها <span class="math">k</span>، نضع <span class="math">y = x + k</span> أي <span class="math">x = y − k</span>، ثم نعوّض في المعادلة الأصلية.</p>
+</div>
+
+<div class="step">
+<div class="step-title">4. Binomial expansion / مفكوك ذات الحدين</div>
+<p class="en">For <span class="math">|u| &lt; 1</span> and any real <span class="math">n</span>:</p>
+<p class="ar">من أجل <span class="math">|u| &lt; 1</span> ولأي عدد حقيقي <span class="math">n</span>:</p>
+<div class="eq">(1 + u)<sup>n</sup> = 1 + n u + [n(n−1)/2!] u² + [n(n−1)(n−2)/3!] u³ + …</div>
+<p class="en">For <span class="math">(a + bx)<sup>n</sup></span>, first write it as <span class="math">a<sup>n</sup>(1 + (b/a)x)<sup>n</sup></span>. The expansion is valid when <span class="math">|(b/a)x| &lt; 1</span>.</p>
+<p class="ar">من أجل <span class="math">(a + bx)<sup>n</sup></span> نكتبها أولًا على الصورة <span class="math">a<sup>n</sup>(1 + (b/a)x)<sup>n</sup></span>، ويكون المفكوك صحيحًا عندما <span class="math">|(b/a)x| &lt; 1</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">5. Matrices / المصفوفات</div>
+<p class="en">For <span class="math">AB</span>, the entry in row <span class="math">i</span> and column <span class="math">j</span> is the dot product of row <span class="math">i</span> of <span class="math">A</span> with column <span class="math">j</span> of <span class="math">B</span>. Eigenvalues solve <span class="math">det(A − λI) = 0</span>; eigenvectors solve <span class="math">(A − λI)v = 0</span>.</p>
+<p class="ar">في حاصل الضرب <span class="math">AB</span>، العنصر في الصف <span class="math">i</span> والعمود <span class="math">j</span> هو حاصل الضرب القياسي للصف <span class="math">i</span> من <span class="math">A</span> مع العمود <span class="math">j</span> من <span class="math">B</span>. تُحل القيم الذاتية من <span class="math">det(A − λI) = 0</span>، والمتجهات الذاتية من <span class="math">(A − λI)v = 0</span>.</p>
+</div>
+
+<h2 class="section">Part 1 — Partial fractions / الكسور الجزئية</h2>
+
+<h3>Q1 <span class="topic">Partial fractions</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Resolve <span class="math">(x − 7)/(x² + 2x − 8)</span> into partial fractions.</p>
+<p class="ar"><b>السؤال.</b> حلّل الكسر <span class="math">(x − 7)/(x² + 2x − 8)</span> إلى كسور جزئية.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Factorise the denominator / حلّل المقام</div>
+<p class="en">We need two numbers whose product is <span class="math">−8</span> and whose sum is <span class="math">2</span>: these are <span class="math">4</span> and <span class="math">−2</span>. Hence <span class="math">x² + 2x − 8 = (x + 4)(x − 2)</span>.</p>
+<p class="ar">نحتاج عددين حاصل ضربهما <span class="math">−8</span> ومجموعهما <span class="math">2</span>، وهما <span class="math">4</span> و<span class="math">−2</span>. إذن <span class="math">x² + 2x − 8 = (x + 4)(x − 2)</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Set up the partial fractions / اكتب صورة الكسور الجزئية</div>
+<p class="en">The factors are distinct and linear, so</p>
+<p class="ar">العاملان خطيان ومختلفان، لذلك</p>
+<div class="eq">(x − 7)/[(x + 4)(x − 2)] = A/(x + 4) + B/(x − 2)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Clear the denominators / اضرب في المقام المشترك</div>
+<p class="en">Multiply both sides by <span class="math">(x + 4)(x − 2)</span>:</p>
+<p class="ar">اضرب الطرفين في <span class="math">(x + 4)(x − 2)</span>:</p>
+<div class="eq">x − 7 = A(x − 2) + B(x + 4)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Substitute convenient values of x / عوّض بقيم مناسبة لـ x</div>
+<p class="en">Put <span class="math">x = 2</span>: &nbsp; <span class="math">2 − 7 = A(0) + B(6)</span>, so <span class="math">−5 = 6B</span> and <span class="math">B = −5/6</span>.</p>
+<p class="ar">ضع <span class="math">x = 2</span>: &nbsp; <span class="math">2 − 7 = A(0) + B(6)</span>، إذن <span class="math">−5 = 6B</span> ومنها <span class="math">B = −5/6</span>.</p>
+<p class="en">Put <span class="math">x = −4</span>: &nbsp; <span class="math">−4 − 7 = A(−6) + B(0)</span>, so <span class="math">−11 = −6A</span> and <span class="math">A = 11/6</span>.</p>
+<p class="ar">ضع <span class="math">x = −4</span>: &nbsp; <span class="math">−4 − 7 = A(−6) + B(0)</span>، إذن <span class="math">−11 = −6A</span> ومنها <span class="math">A = 11/6</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 5 / الخطوة 5 — Check / تحقق</div>
+<p class="en">Coefficient of <span class="math">x</span>: <span class="math">A + B = 11/6 − 5/6 = 1</span> ✓. Constant term: <span class="math">−2A + 4B = −22/6 − 20/6 = −42/6 = −7</span> ✓.</p>
+<p class="ar">معامل <span class="math">x</span>: <span class="math">A + B = 11/6 − 5/6 = 1</span> ✓. الحد الثابت: <span class="math">−2A + 4B = −22/6 − 20/6 = −42/6 = −7</span> ✓.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">(x − 7)/(x² + 2x − 8) = 11/[6(x + 4)] − 5/[6(x − 2)]</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">(x − 7)/(x² + 2x − 8) = 11/[6(x + 4)] − 5/[6(x − 2)]</span>.</p>
+</div>
+
+<h3>Q2 <span class="topic">Partial fractions</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Resolve <span class="math">(4x² − 7x − 12)/[x(x + 2)(x − 3)]</span> into partial fractions.</p>
+<p class="ar"><b>السؤال.</b> حلّل الكسر <span class="math">(4x² − 7x − 12)/[x(x + 2)(x − 3)]</span> إلى كسور جزئية.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Identify the factors / حدّد العوامل</div>
+<p class="en">The denominator already has three distinct linear factors: <span class="math">x</span>, <span class="math">(x + 2)</span> and <span class="math">(x − 3)</span>. The numerator has degree 2, the denominator degree 3, so the fraction is proper.</p>
+<p class="ar">المقام مكوّن من ثلاثة عوامل خطية مختلفة: <span class="math">x</span> و<span class="math">(x + 2)</span> و<span class="math">(x − 3)</span>. درجة البسط 2 ودرجة المقام 3، إذن الكسر صحيح.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Set up the form / اكتب الصورة</div>
+<div class="eq">(4x² − 7x − 12)/[x(x + 2)(x − 3)] = A/x + B/(x + 2) + C/(x − 3)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Clear the denominators / اضرب في المقام المشترك</div>
+<div class="eq">4x² − 7x − 12 = A(x + 2)(x − 3) + Bx(x − 3) + Cx(x + 2)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Find A, B, C / أوجد A وB وC</div>
+<p class="en">Put <span class="math">x = 0</span>: &nbsp; <span class="math">−12 = A(2)(−3) = −6A</span>, so <span class="math">A = 2</span>.</p>
+<p class="ar">ضع <span class="math">x = 0</span>: &nbsp; <span class="math">−12 = A(2)(−3) = −6A</span>، إذن <span class="math">A = 2</span>.</p>
+<p class="en">Put <span class="math">x = −2</span>: &nbsp; <span class="math">4(4) − 7(−2) − 12 = 18 = B(−2)(−5) = 10B</span>, so <span class="math">B = 9/5</span>.</p>
+<p class="ar">ضع <span class="math">x = −2</span>: &nbsp; <span class="math">4(4) − 7(−2) − 12 = 18 = B(−2)(−5) = 10B</span>، إذن <span class="math">B = 9/5</span>.</p>
+<p class="en">Put <span class="math">x = 3</span>: &nbsp; <span class="math">4(9) − 7(3) − 12 = 3 = C(3)(5) = 15C</span>, so <span class="math">C = 1/5</span>.</p>
+<p class="ar">ضع <span class="math">x = 3</span>: &nbsp; <span class="math">4(9) − 7(3) − 12 = 3 = C(3)(5) = 15C</span>، إذن <span class="math">C = 1/5</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 5 / الخطوة 5 — Check / تحقق</div>
+<p class="en">Coefficient of <span class="math">x²</span>: <span class="math">A + B + C = 2 + 9/5 + 1/5 = 2 + 2 = 4</span> ✓, which matches the numerator.</p>
+<p class="ar">معامل <span class="math">x²</span>: <span class="math">A + B + C = 2 + 9/5 + 1/5 = 2 + 2 = 4</span> ✓، وهو مطابق لبسط الكسر الأصلي.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">2/x + 9/[5(x + 2)] + 1/[5(x − 3)]</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">2/x + 9/[5(x + 2)] + 1/[5(x − 3)]</span>.</p>
+</div>
+
+<h3>Q3 <span class="topic">Partial fractions</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Resolve <span class="math">x³/(x² − 1)</span> into partial fractions.</p>
+<p class="ar"><b>السؤال.</b> حلّل الكسر <span class="math">x³/(x² − 1)</span> إلى كسور جزئية.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Divide first / اقسم أولًا</div>
+<p class="en">The numerator has degree 3 and the denominator degree 2, so the fraction is improper. Divide:</p>
+<p class="ar">درجة البسط 3 ودرجة المقام 2، إذن الكسر غير صحيح. نقسم:</p>
+<div class="eq">x³ = x(x² − 1) + x</div>
+<p class="en">Therefore</p>
+<p class="ar">لذلك</p>
+<div class="eq">x³/(x² − 1) = x + x/(x² − 1)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Factorise the remaining denominator / حلّل المقام المتبقي</div>
+<div class="eq">x² − 1 = (x − 1)(x + 1)</div>
+<p class="en">So write</p>
+<p class="ar">لذلك نكتب</p>
+<div class="eq">x/[(x − 1)(x + 1)] = A/(x − 1) + B/(x + 1)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Clear the denominators / اضرب في المقام المشترك</div>
+<div class="eq">x = A(x + 1) + B(x − 1)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Find A and B / أوجد A وB</div>
+<p class="en">Put <span class="math">x = 1</span>: &nbsp; <span class="math">1 = 2A</span>, so <span class="math">A = 1/2</span>.</p>
+<p class="ar">ضع <span class="math">x = 1</span>: &nbsp; <span class="math">1 = 2A</span>، إذن <span class="math">A = 1/2</span>.</p>
+<p class="en">Put <span class="math">x = −1</span>: &nbsp; <span class="math">−1 = −2B</span>, so <span class="math">B = 1/2</span>.</p>
+<p class="ar">ضع <span class="math">x = −1</span>: &nbsp; <span class="math">−1 = −2B</span>، إذن <span class="math">B = 1/2</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">x³/(x² − 1) = x + 1/[2(x − 1)] + 1/[2(x + 1)]</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">x³/(x² − 1) = x + 1/[2(x − 1)] + 1/[2(x + 1)]</span>.</p>
+</div>
+
+<h3>Q4 <span class="topic">Partial fractions</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Resolve <span class="math">x/[(x² + 1)(x² + 2)]</span> into partial fractions.</p>
+<p class="ar"><b>السؤال.</b> حلّل الكسر <span class="math">x/[(x² + 1)(x² + 2)]</span> إلى كسور جزئية.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Choose the correct form / اختر الصورة الصحيحة</div>
+<p class="en">Both <span class="math">x² + 1</span> and <span class="math">x² + 2</span> are irreducible quadratics over the real numbers, so each needs a linear numerator:</p>
+<p class="ar">كلا المقدارين <span class="math">x² + 1</span> و<span class="math">x² + 2</span> تربيعي غير قابل للتحليل على الأعداد الحقيقية، لذا يحتاج كل منهما إلى بسط خطي:</p>
+<div class="eq">x/[(x² + 1)(x² + 2)] = (Ax + B)/(x² + 1) + (Cx + D)/(x² + 2)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Clear the denominators / اضرب في المقام المشترك</div>
+<div class="eq">x = (Ax + B)(x² + 2) + (Cx + D)(x² + 1)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Expand and compare coefficients / انشر وقارن المعاملات</div>
+<p class="en">Expanding the right-hand side:</p>
+<p class="ar">بنشر الطرف الأيمن:</p>
+<div class="eq">x = (A + C)x³ + (B + D)x² + (2A + C)x + (2B + D)</div>
+<p class="en">Comparing coefficients gives:</p>
+<p class="ar">بمقارنة المعاملات نحصل على:</p>
+<div class="eq">A + C = 0, &nbsp; B + D = 0, &nbsp; 2A + C = 1, &nbsp; 2B + D = 0</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Solve the system / حلّ النظام</div>
+<p class="en">From <span class="math">A + C = 0</span> and <span class="math">2A + C = 1</span>: subtracting gives <span class="math">A = 1</span>, hence <span class="math">C = −1</span>.</p>
+<p class="ar">من <span class="math">A + C = 0</span> و<span class="math">2A + C = 1</span>: بالطرح نحصل على <span class="math">A = 1</span>، ومنها <span class="math">C = −1</span>.</p>
+<p class="en">From <span class="math">B + D = 0</span> and <span class="math">2B + D = 0</span>: subtracting gives <span class="math">B = 0</span>, hence <span class="math">D = 0</span>.</p>
+<p class="ar">من <span class="math">B + D = 0</span> و<span class="math">2B + D = 0</span>: بالطرح نحصل على <span class="math">B = 0</span>، ومنها <span class="math">D = 0</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">x/[(x² + 1)(x² + 2)] = x/(x² + 1) − x/(x² + 2)</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">x/[(x² + 1)(x² + 2)] = x/(x² + 1) − x/(x² + 2)</span>.</p>
+</div>
+
+<h2 class="section">Part 2 — Division, remainder and roots of polynomials / القسمة والباقي وجذور كثيرات الحدود</h2>
+
+<h3>Q5 <span class="topic">Polynomial division</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Divide <span class="math">2x³ + 2x² + 7</span> by <span class="math">(x − 2)</span> and determine the quotient <span class="math">Q</span> and the remainder <span class="math">R</span>.</p>
+<p class="ar"><b>السؤال.</b> اقسم <span class="math">2x³ + 2x² + 7</span> على <span class="math">(x − 2)</span> وحدّد خارج القسمة <span class="math">Q</span> والباقي <span class="math">R</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Write all coefficients / اكتب جميع المعاملات</div>
+<p class="en">Include the missing <span class="math">x</span> term with coefficient 0: the coefficients are <span class="math">2, 2, 0, 7</span>. Use synthetic division with root <span class="math">2</span>.</p>
+<p class="ar">أضف حد <span class="math">x</span> المفقود بمعامل 0: المعاملات هي <span class="math">2, 2, 0, 7</span>. نستخدم القسمة التركيبية بالجذر <span class="math">2</span>.</p>
+<pre class="eq"> 2 │   2    2    0    7
+   │        4   12   24
+   └────────────────────
+       2    6   12   31</pre>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Read the quotient and remainder / اقرأ خارج القسمة والباقي</div>
+<p class="en">The bottom row gives the quotient coefficients <span class="math">2, 6, 12</span> (one degree lower than the cubic) and the remainder <span class="math">31</span>.</p>
+<p class="ar">الصف الأخير يعطي معاملات خارج القسمة <span class="math">2, 6, 12</span> (درجة أقل من الدرجة الثالثة بدرجة واحدة) والباقي <span class="math">31</span>.</p>
+<div class="eq">Q = 2x² + 6x + 12, &nbsp; R = 31</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Check by multiplying back / تحقق بالضرب العكسي</div>
+<div class="eq">(x − 2)(2x² + 6x + 12) + 31 = 2x³ + 6x² + 12x − 4x² − 12x − 24 + 31 = 2x³ + 2x² + 7 ✓</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> Quotient <span class="math">Q = 2x² + 6x + 12</span>; remainder <span class="math">R = 31</span>.</p>
+<p class="ar"><b>الإجابة:</b> خارج القسمة <span class="math">Q = 2x² + 6x + 12</span>؛ والباقي <span class="math">R = 31</span>.</p>
+</div>
+
+<h3>Q6 <span class="topic">Remainder theorem</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> When <span class="math">2x³ + kx² − 6</span> is divided by <span class="math">x + 1</span>, the remainder is 3. Find <span class="math">k</span>.</p>
+<p class="ar"><b>السؤال.</b> عند قسمة <span class="math">2x³ + kx² − 6</span> على <span class="math">x + 1</span> كان الباقي 3. أوجد <span class="math">k</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Apply the remainder theorem / طبّق نظرية الباقي</div>
+<p class="en">Let <span class="math">f(x) = 2x³ + kx² − 6</span>. Dividing by <span class="math">x + 1 = x − (−1)</span> gives remainder <span class="math">f(−1)</span>.</p>
+<p class="ar">لتكن <span class="math">f(x) = 2x³ + kx² − 6</span>. القسمة على <span class="math">x + 1 = x − (−1)</span> تعطي الباقي <span class="math">f(−1)</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Set the remainder equal to 3 / ساوِ الباقي بـ 3</div>
+<div class="eq">f(−1) = 2(−1)³ + k(−1)² − 6 = −2 + k − 6 = k − 8</div>
+<p class="en">Given that the remainder is 3:</p>
+<p class="ar">بما أن الباقي يساوي 3:</p>
+<div class="eq">k − 8 = 3 &nbsp; ⇒ &nbsp; k = 11</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">k = 11</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">k = 11</span>.</p>
+</div>
+
+<h3>Q7 <span class="topic">Roots of polynomials</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> If <span class="math">α</span> is a root of <span class="math">x³ − 3x² + 4x − 8 = 0</span>, find an equation for which <span class="math">3α</span> is a root.</p>
+<p class="ar"><b>السؤال.</b> إذا كان <span class="math">α</span> جذرًا للمعادلة <span class="math">x³ − 3x² + 4x − 8 = 0</span>، فأوجد معادلة يكون <span class="math">3α</span> جذرًا لها.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Introduce the new variable / أدخل المتغير الجديد</div>
+<p class="en">Let the new root be <span class="math">y = 3α</span>. Then <span class="math">α = y/3</span>.</p>
+<p class="ar">ليكن الجذر الجديد <span class="math">y = 3α</span>، إذن <span class="math">α = y/3</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Substitute into the original equation / عوّض في المعادلة الأصلية</div>
+<p class="en">Since <span class="math">α</span> satisfies <span class="math">α³ − 3α² + 4α − 8 = 0</span>:</p>
+<p class="ar">بما أن <span class="math">α</span> تحقق <span class="math">α³ − 3α² + 4α − 8 = 0</span>:</p>
+<div class="eq">(y/3)³ − 3(y/3)² + 4(y/3) − 8 = 0</div>
+<div class="eq">y³/27 − y²/3 + 4y/3 − 8 = 0</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Clear the fractions / تخلّص من الكسور</div>
+<p class="en">Multiply the whole equation by 27:</p>
+<p class="ar">اضرب المعادلة كلها في 27:</p>
+<div class="eq">y³ − 9y² + 36y − 216 = 0</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> The required equation is <span class="math">x³ − 9x² + 36x − 216 = 0</span> (using <span class="math">x</span> as the variable).</p>
+<p class="ar"><b>الإجابة:</b> المعادلة المطلوبة هي <span class="math">x³ − 9x² + 36x − 216 = 0</span> (باستخدام <span class="math">x</span> كمتغير).</p>
+</div>
+
+<h3>Q8 <span class="topic">Remainder theorem</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Find the remainder when <span class="math">x<sup>2006</sup> + x<sup>2005</sup> + … + x + 1</span> is divided by <span class="math">x + 1</span>.</p>
+<p class="ar"><b>السؤال.</b> أوجد الباقي عند قسمة <span class="math">x<sup>2006</sup> + x<sup>2005</sup> + … + x + 1</span> على <span class="math">x + 1</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Use the remainder theorem / استخدم نظرية الباقي</div>
+<p class="en">Let <span class="math">f(x) = x<sup>2006</sup> + x<sup>2005</sup> + … + x + 1</span>. The remainder on division by <span class="math">x + 1</span> is <span class="math">f(−1)</span>.</p>
+<p class="ar">لتكن <span class="math">f(x) = x<sup>2006</sup> + x<sup>2005</sup> + … + x + 1</span>. الباقي عند القسمة على <span class="math">x + 1</span> هو <span class="math">f(−1)</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Evaluate the alternating sum / احسب المجموع المتناوب</div>
+<div class="eq">f(−1) = (−1)<sup>2006</sup> + (−1)<sup>2005</sup> + … + (−1) + 1 = 1 − 1 + 1 − 1 + … − 1 + 1</div>
+<p class="en">There are <span class="math">2007</span> terms (from exponent <span class="math">0</span> to <span class="math">2006</span>). They form <span class="math">1003</span> cancelling pairs <span class="math">(1 − 1)</span>, plus one final <span class="math">+1</span>.</p>
+<p class="ar">عدد الحدود <span class="math">2007</span> حدًا (من الأس <span class="math">0</span> إلى <span class="math">2006</span>). وتشكّل <span class="math">1003</span> زوجًا متلاشيًا <span class="math">(1 − 1)</span>، يتبقى بعدها حد أخير <span class="math">+1</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Conclude / استنتج</div>
+<div class="eq">f(−1) = 1</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> The remainder is <span class="math">1</span>.</p>
+<p class="ar"><b>الإجابة:</b> الباقي هو <span class="math">1</span>.</p>
+</div>
+
+<h3>Q9 <span class="topic">Roots of polynomials</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Increase by 2 the roots of <span class="math">x⁴ − x³ − 10x² + 4x + 24 = 0</span> and hence solve it.</p>
+<p class="ar"><b>السؤال.</b> زِد جذور المعادلة <span class="math">x⁴ − x³ − 10x² + 4x + 24 = 0</span> بمقدار 2، ثم حلّها.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Set up the transformation / جهّز التحويل</div>
+<p class="en">We want the new roots to be <span class="math">y = x + 2</span>, so <span class="math">x = y − 2</span>. Substitute <span class="math">x = y − 2</span> into the equation.</p>
+<p class="ar">نريد الجذور الجديدة <span class="math">y = x + 2</span>، إذن <span class="math">x = y − 2</span>. عوّض <span class="math">x = y − 2</span> في المعادلة.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Expand each term / انشر كل حد</div>
+<div class="eq">(y − 2)⁴ = y⁴ − 8y³ + 24y² − 32y + 16</div>
+<div class="eq">−(y − 2)³ = −y³ + 6y² − 12y + 8</div>
+<div class="eq">−10(y − 2)² = −10y² + 40y − 40</div>
+<div class="eq">+4(y − 2) = 4y − 8 &nbsp;&nbsp; and &nbsp;&nbsp; +24</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Add and simplify / اجمع وبسّط</div>
+<p class="en">Adding the five lines and collecting like terms:</p>
+<p class="ar">بجمع الأسطر الخمسة وتجميع الحدود المتشابهة:</p>
+<div class="eq">y⁴ + (−8 − 1)y³ + (24 + 6 − 10)y² + (−32 − 12 + 40 + 4)y + (16 + 8 − 40 − 8 + 24) = 0</div>
+<div class="eq">y⁴ − 9y³ + 20y² = 0</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Solve the transformed equation / حلّ المعادلة المحوّلة</div>
+<div class="eq">y²(y² − 9y + 20) = 0 &nbsp; ⇒ &nbsp; y²(y − 4)(y − 5) = 0</div>
+<p class="en">Hence <span class="math">y = 0</span> (double root), <span class="math">y = 4</span>, <span class="math">y = 5</span>.</p>
+<p class="ar">إذن <span class="math">y = 0</span> (جذر مكرر)، <span class="math">y = 4</span>، <span class="math">y = 5</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 5 / الخطوة 5 — Return to x / ارجع إلى x</div>
+<p class="en">Using <span class="math">x = y − 2</span>:</p>
+<p class="ar">باستخدام <span class="math">x = y − 2</span>:</p>
+<div class="eq">y = 0 → x = −2; &nbsp; y = 4 → x = 2; &nbsp; y = 5 → x = 3</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> The transformed equation is <span class="math">y⁴ − 9y³ + 20y² = 0</span>. The roots of the original equation are <span class="math">x = −2</span> (double), <span class="math">x = 2</span> and <span class="math">x = 3</span>.</p>
+<p class="ar"><b>الإجابة:</b> المعادلة المحوّلة هي <span class="math">y⁴ − 9y³ + 20y² = 0</span>. وجذور المعادلة الأصلية هي <span class="math">x = −2</span> (مكرر)، <span class="math">x = 2</span>، <span class="math">x = 3</span>.</p>
+</div>
+
+<h2 class="section">Part 3 — Binomial expansion / مفكوك ذات الحدين</h2>
+
+<h3>Q10 <span class="topic">Binomial expansion</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Write down the first 4 terms in ascending powers of <span class="math">x</span> of the binomial expansion of <span class="math">(1 − x)<sup>−2</sup></span>, and clearly state the range of values for which the expansion is valid.</p>
+<p class="ar"><b>السؤال.</b> اكتب أول 4 حدود بالقوى التصاعدية لـ <span class="math">x</span> في مفكوك <span class="math">(1 − x)<sup>−2</sup></span>، وحدّد بوضوح نطاق القيم التي يكون فيها المفكوك صحيحًا.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Match the standard form / طابق الصورة القياسية</div>
+<p class="en">Use <span class="math">(1 + u)<sup>n</sup></span> with <span class="math">n = −2</span> and <span class="math">u = −x</span>.</p>
+<p class="ar">استخدم <span class="math">(1 + u)<sup>n</sup></span> مع <span class="math">n = −2</span> و<span class="math">u = −x</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Compute the coefficients / احسب المعاملات</div>
+<p class="en">First term: <span class="math">1</span>.</p>
+<p class="ar">الحد الأول: <span class="math">1</span>.</p>
+<p class="en">Second term: <span class="math">n u = (−2)(−x) = 2x</span>.</p>
+<p class="ar">الحد الثاني: <span class="math">n u = (−2)(−x) = 2x</span>.</p>
+<p class="en">Third term: <span class="math">[n(n−1)/2!] u² = [(−2)(−3)/2] x² = 3x²</span>.</p>
+<p class="ar">الحد الثالث: <span class="math">[n(n−1)/2!] u² = [(−2)(−3)/2] x² = 3x²</span>.</p>
+<p class="en">Fourth term: <span class="math">[n(n−1)(n−2)/3!] u³ = [(−2)(−3)(−4)/6] (−x)³ = (−4)(−x³) = 4x³</span>.</p>
+<p class="ar">الحد الرابع: <span class="math">[n(n−1)(n−2)/3!] u³ = [(−2)(−3)(−4)/6] (−x)³ = (−4)(−x³) = 4x³</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — State the range of validity / حدّد نطاق الصلاحية</div>
+<p class="en">The expansion is valid for <span class="math">|u| &lt; 1</span>, i.e. <span class="math">|−x| &lt; 1</span>, so <span class="math">|x| &lt; 1</span>.</p>
+<p class="ar">المفكوك صحيح عندما <span class="math">|u| &lt; 1</span>، أي <span class="math">|−x| &lt; 1</span>، ومنها <span class="math">|x| &lt; 1</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">(1 − x)<sup>−2</sup> = 1 + 2x + 3x² + 4x³ + …</span>, valid for <span class="math">|x| &lt; 1</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">(1 − x)<sup>−2</sup> = 1 + 2x + 3x² + 4x³ + …</span>، صحيح عندما <span class="math">|x| &lt; 1</span>.</p>
+</div>
+
+<h3>Q11 <span class="topic">Binomial expansion</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Write down the first 4 terms in ascending powers of <span class="math">x</span> of the binomial expansion of <span class="math">(2 + 3x)<sup>−2</sup></span>, and clearly state the range of values for which the expansion is valid.</p>
+<p class="ar"><b>السؤال.</b> اكتب أول 4 حدود بالقوى التصاعدية لـ <span class="math">x</span> في مفكوك <span class="math">(2 + 3x)<sup>−2</sup></span>، وحدّد بوضوح نطاق القيم التي يكون فيها المفكوك صحيحًا.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Factor out the constant / أخرج العامل الثابت</div>
+<p class="en">Write <span class="math">(2 + 3x)<sup>−2</sup> = 2<sup>−2</sup>(1 + 3x/2)<sup>−2</sup> = (1/4)(1 + u)<sup>−2</sup></span>, where <span class="math">u = 3x/2</span>.</p>
+<p class="ar">اكتب <span class="math">(2 + 3x)<sup>−2</sup> = 2<sup>−2</sup>(1 + 3x/2)<sup>−2</sup> = (1/4)(1 + u)<sup>−2</sup></span>، حيث <span class="math">u = 3x/2</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Expand with n = −2 / انشر باستخدام n = −2</div>
+<p class="en">The bracket gives:</p>
+<p class="ar">القوس يعطي:</p>
+<div class="eq">1 + (−2)u + [(−2)(−3)/2]u² + [(−2)(−3)(−4)/6]u³</div>
+<div class="eq">= 1 − 2u + 3u² − 4u³</div>
+<p class="en">Substituting <span class="math">u = 3x/2</span>:</p>
+<p class="ar">بالتعويض <span class="math">u = 3x/2</span>:</p>
+<div class="eq">1 − 3x + 3(9x²/4) − 4(27x³/8) = 1 − 3x + 27x²/4 − 27x³/2</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Multiply by 1/4 / اضرب في 1/4</div>
+<div class="eq">(2 + 3x)<sup>−2</sup> = 1/4 − 3x/4 + 27x²/16 − 27x³/8 + …</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Range of validity / نطاق الصلاحية</div>
+<p class="en">Require <span class="math">|u| &lt; 1</span>, i.e. <span class="math">|3x/2| &lt; 1</span>, which gives <span class="math">|x| &lt; 2/3</span>.</p>
+<p class="ar">نشترط <span class="math">|u| &lt; 1</span>، أي <span class="math">|3x/2| &lt; 1</span>، ومنها <span class="math">|x| &lt; 2/3</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">(2 + 3x)<sup>−2</sup> = 1/4 − 3x/4 + 27x²/16 − 27x³/8 + …</span>, valid for <span class="math">|x| &lt; 2/3</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">(2 + 3x)<sup>−2</sup> = 1/4 − 3x/4 + 27x²/16 − 27x³/8 + …</span>، صحيح عندما <span class="math">|x| &lt; 2/3</span>.</p>
+</div>
+
+<h3>Q12 <span class="topic">Binomial expansion</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Write down the first 4 terms in ascending powers of <span class="math">x</span> of the binomial expansion of <span class="math">(3 + 6x)<sup>0·1</sup></span> in the form <span class="math">3<sup>0·1</sup>(1 + ax + bx² + cx³ + …)</span>. Clearly state the range of values for which the expansion is valid.</p>
+<p class="ar"><b>السؤال.</b> اكتب أول 4 حدود بالقوى التصاعدية لـ <span class="math">x</span> في مفكوك <span class="math">(3 + 6x)<sup>0·1</sup></span> على الصورة <span class="math">3<sup>0·1</sup>(1 + ax + bx² + cx³ + …)</span>، وحدّد بوضوح نطاق القيم التي يكون فيها المفكوك صحيحًا.</p>
+</div>
+
+<div class="note">
+<p class="en"><b>Note:</b> In the PDF the exponent is printed as <span class="math">0·1</span>, which means <span class="math">0.1 = 1/10</span>. The solution below follows the printed value. A note at the end gives the common <span class="math">1/3</span> version.</p>
+<p class="ar"><b>ملاحظة:</b> الأس المطبوع في ملف الـ PDF هو <span class="math">0·1</span>، أي <span class="math">0.1 = 1/10</span>. الحل التالي يتبع القيمة المطبوعة، وفي نهاية السؤال ملاحظة عن النسخة الشائعة التي يكون فيها الأس <span class="math">1/3</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Factor out 3 / أخرج العامل 3</div>
+<div class="eq">(3 + 6x)<sup>0.1</sup> = 3<sup>0.1</sup>(1 + 2x)<sup>0.1</sup></div>
+<p class="en">So we expand <span class="math">(1 + u)<sup>n</sup></span> with <span class="math">n = 0.1 = 1/10</span> and <span class="math">u = 2x</span>.</p>
+<p class="ar">إذن نفكّك <span class="math">(1 + u)<sup>n</sup></span> مع <span class="math">n = 0.1 = 1/10</span> و<span class="math">u = 2x</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Compute the four terms / احسب الحدود الأربعة</div>
+<p class="en">First term: <span class="math">1</span>.</p>
+<p class="ar">الحد الأول: <span class="math">1</span>.</p>
+<p class="en">Second term: <span class="math">n u = (1/10)(2x) = x/5 = 0.2x</span>.</p>
+<p class="ar">الحد الثاني: <span class="math">n u = (1/10)(2x) = x/5 = 0.2x</span>.</p>
+<p class="en">Third term: <span class="math">[n(n−1)/2!] u² = [(1/10)(−9/10)/2](2x)² = (−9/200)(4x²) = −9x²/50 = −0.18x²</span>.</p>
+<p class="ar">الحد الثالث: <span class="math">[n(n−1)/2!] u² = [(1/10)(−9/10)/2](2x)² = (−9/200)(4x²) = −9x²/50 = −0.18x²</span>.</p>
+<p class="en">Fourth term: <span class="math">[n(n−1)(n−2)/3!] u³ = [(1/10)(−9/10)(−19/10)/6](2x)³ = (171/6000)(8x³) = 57x³/250 = 0.228x³</span>.</p>
+<p class="ar">الحد الرابع: <span class="math">[n(n−1)(n−2)/3!] u³ = [(1/10)(−9/10)(−19/10)/6](2x)³ = (171/6000)(8x³) = 57x³/250 = 0.228x³</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Write the bracket and the range / اكتب القوس ونطاق الصلاحية</div>
+<div class="eq">(1 + 2x)<sup>0.1</sup> = 1 + x/5 − 9x²/50 + 57x³/250 + …</div>
+<p class="en">Require <span class="math">|u| &lt; 1</span>: <span class="math">|2x| &lt; 1</span>, so <span class="math">|x| &lt; 1/2</span>.</p>
+<p class="ar">نشترط <span class="math">|u| &lt; 1</span>: <span class="math">|2x| &lt; 1</span>، إذن <span class="math">|x| &lt; 1/2</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">(3 + 6x)<sup>0.1</sup> = 3<sup>0.1</sup>[1 + x/5 − 9x²/50 + 57x³/250 + …]</span>, so <span class="math">a = 1/5</span>, <span class="math">b = −9/50</span>, <span class="math">c = 57/250</span>, valid for <span class="math">|x| &lt; 1/2</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">(3 + 6x)<sup>0.1</sup> = 3<sup>0.1</sup>[1 + x/5 − 9x²/50 + 57x³/250 + …]</span>، إذن <span class="math">a = 1/5</span>، <span class="math">b = −9/50</span>، <span class="math">c = 57/250</span>، وصحيح عندما <span class="math">|x| &lt; 1/2</span>.</p>
+</div>
+
+<div class="note">
+<p class="en"><b>If the intended exponent is 1/3:</b> <span class="math">(3 + 6x)<sup>1/3</sup> = 3<sup>1/3</sup>[1 + 2x/3 − 4x²/9 + 40x³/81 + …]</span>, valid for <span class="math">|x| &lt; 1/2</span>. Here <span class="math">a = 2/3</span>, <span class="math">b = −4/9</span>, <span class="math">c = 40/81</span>.</p>
+<p class="ar"><b>إذا كان المقصود أن الأس هو 1/3:</b> <span class="math">(3 + 6x)<sup>1/3</sup> = 3<sup>1/3</sup>[1 + 2x/3 − 4x²/9 + 40x³/81 + …]</span>، وصحيح عندما <span class="math">|x| &lt; 1/2</span>. وفي هذه الحالة <span class="math">a = 2/3</span>، <span class="math">b = −4/9</span>، <span class="math">c = 40/81</span>.</p>
+</div>
+
+<h3>Q13 <span class="topic">Binomial expansion</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Show that, if <span class="math">x</span> is small enough for <span class="math">x³</span> and higher powers of <span class="math">x</span> to be neglected, the function <span class="math">(x − 1)(1 + x)<sup>2/3</sup></span> has a quadratic approximation of the form <span class="math">a + bx + cx²</span>. State the values of <span class="math">a</span>, <span class="math">b</span> and <span class="math">c</span>.</p>
+<p class="ar"><b>السؤال.</b> أثبت أنه إذا كانت <span class="math">x</span> صغيرة بما يكفي لإهمال <span class="math">x³</span> والقوى الأعلى منها، فإن الدالة <span class="math">(x − 1)(1 + x)<sup>2/3</sup></span> لها تقريب تربيعي على الصورة <span class="math">a + bx + cx²</span>. وحدّد قيم <span class="math">a</span> و<span class="math">b</span> و<span class="math">c</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Expand the binomial factor / انشر عامل ذات الحدين</div>
+<p class="en">Use <span class="math">(1 + x)<sup>n</sup></span> with <span class="math">n = 2/3</span>, keeping terms up to <span class="math">x²</span>:</p>
+<p class="ar">استخدم <span class="math">(1 + x)<sup>n</sup></span> مع <span class="math">n = 2/3</span>، مع الاحتفاظ بالحدود حتى <span class="math">x²</span>:</p>
+<div class="eq">(1 + x)<sup>2/3</sup> = 1 + (2/3)x + [(2/3)(−1/3)/2]x² + …</div>
+<div class="eq">= 1 + 2x/3 − x²/9 + …</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Multiply by (x − 1) / اضرب في (x − 1)</div>
+<div class="eq">(x − 1)(1 + 2x/3 − x²/9) = x(1 + 2x/3 − x²/9) − (1 + 2x/3 − x²/9)</div>
+<div class="eq">= x + 2x²/3 − x³/9 − 1 − 2x/3 + x²/9</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Neglect x³ and collect / أهمل x³ واجمع</div>
+<p class="en">The term <span class="math">−x³/9</span> is neglected because <span class="math">x³</span> and higher powers are ignored:</p>
+<p class="ar">نهمل الحد <span class="math">−x³/9</span> لأن <span class="math">x³</span> والقوى الأعلى تُهمل:</p>
+<div class="eq">= −1 + (1 − 2/3)x + (2/3 + 1/9)x²</div>
+<div class="eq">= −1 + x/3 + 7x²/9</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">(x − 1)(1 + x)<sup>2/3</sup> ≈ −1 + x/3 + 7x²/9</span>, so <span class="math">a = −1</span>, <span class="math">b = 1/3</span>, <span class="math">c = 7/9</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">(x − 1)(1 + x)<sup>2/3</sup> ≈ −1 + x/3 + 7x²/9</span>، إذن <span class="math">a = −1</span>، <span class="math">b = 1/3</span>، <span class="math">c = 7/9</span>.</p>
+</div>
+
+<h3>Q14 <span class="topic">Binomial expansion</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Expand <span class="math">2/[(x + 1)(x + 3)]</span> as a series in ascending powers of <span class="math">x</span>, stating the first 3 terms, and state the range of values of <span class="math">x</span> for which the expansion is valid.</p>
+<p class="ar"><b>السؤال.</b> مفكوك <span class="math">2/[(x + 1)(x + 3)]</span> على صورة متسلسلة بالقوى التصاعدية لـ <span class="math">x</span>، مع ذكر أول 3 حدود، وحدّد نطاق قيم <span class="math">x</span> التي يكون فيها المفكوك صحيحًا.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Split into partial fractions / حلّل إلى كسور جزئية</div>
+<p class="en">Write <span class="math">2/[(x + 1)(x + 3)] = A/(x + 1) + B/(x + 3)</span>. Then <span class="math">2 = A(x + 3) + B(x + 1)</span>. Putting <span class="math">x = −1</span> gives <span class="math">A = 1</span>; putting <span class="math">x = −3</span> gives <span class="math">B = −1</span>.</p>
+<p class="ar">اكتب <span class="math">2/[(x + 1)(x + 3)] = A/(x + 1) + B/(x + 3)</span>. إذن <span class="math">2 = A(x + 3) + B(x + 1)</span>. بالتعويض <span class="math">x = −1</span> نحصل على <span class="math">A = 1</span>، وبالتعويض <span class="math">x = −3</span> نحصل على <span class="math">B = −1</span>.</p>
+<div class="eq">2/[(x + 1)(x + 3)] = 1/(x + 1) − 1/(x + 3)</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Expand each fraction / انشر كل كسر</div>
+<div class="eq">1/(x + 1) = (1 + x)<sup>−1</sup> = 1 − x + x² − x³ + …</div>
+<div class="eq">1/(x + 3) = (1/3)(1 + x/3)<sup>−1</sup> = (1/3)(1 − x/3 + x²/9 − …) = 1/3 − x/9 + x²/27 − …</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Subtract and collect / اطرح واجمع</div>
+<div class="eq">(1 − 1/3) + (−1 + 1/9)x + (1 − 1/27)x² + …</div>
+<div class="eq">= 2/3 − 8x/9 + 26x²/27 + …</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 4 / الخطوة 4 — Range of validity / نطاق الصلاحية</div>
+<p class="en">The first expansion needs <span class="math">|x| &lt; 1</span>; the second needs <span class="math">|x/3| &lt; 1</span>, which is automatically satisfied when <span class="math">|x| &lt; 1</span>. Hence the overall range is <span class="math">|x| &lt; 1</span>.</p>
+<p class="ar">المفكوك الأول يحتاج <span class="math">|x| &lt; 1</span>، والثاني يحتاج <span class="math">|x/3| &lt; 1</span> وهو محقق تلقائيًا عندما <span class="math">|x| &lt; 1</span>. إذن النطاق الكلي هو <span class="math">|x| &lt; 1</span>.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">2/[(x + 1)(x + 3)] = 2/3 − 8x/9 + 26x²/27 + …</span>, valid for <span class="math">|x| &lt; 1</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">2/[(x + 1)(x + 3)] = 2/3 − 8x/9 + 26x²/27 + …</span>، صحيح عندما <span class="math">|x| &lt; 1</span>.</p>
+</div>
+
+<h2 class="section">Part 4 — Matrices / المصفوفات</h2>
+
+<h3>Q15 <span class="topic">Matrices</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Let <span class="math">A = [[2, 1], [0, 3]]</span> and <span class="math">B = [[1, −1], [4, 2]]</span> (each matrix is written row by row). Find <span class="math">A + B</span>.</p>
+<p class="ar"><b>السؤال.</b> لتكن <span class="math">A = [[2, 1], [0, 3]]</span> و<span class="math">B = [[1, −1], [4, 2]]</span> (كل مصفوفة مكتوبة صفًا صفًا). أوجد <span class="math">A + B</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Add corresponding entries / اجمع العناصر المتناظرة</div>
+<p class="en">Matrices of the same order are added entry by entry:</p>
+<p class="ar">تُجمع المصفوفات ذات الرتبة نفسها عنصرًا بعنصر:</p>
+<div class="eq">
+A + B =
+<table class="mat"><tr><td>2 + 1</td><td>1 + (−1)</td></tr><tr><td>0 + 4</td><td>3 + 2</td></tr></table>
+=
+<table class="mat"><tr><td>3</td><td>0</td></tr><tr><td>4</td><td>5</td></tr></table>
+</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">A + B = [[3, 0], [4, 5]]</span>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">A + B = [[3, 0], [4, 5]]</span>.</p>
+</div>
+
+<h3>Q16 <span class="topic">Matrices</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> For the same matrices <span class="math">A = [[2, 1], [0, 3]]</span> and <span class="math">B = [[1, −1], [4, 2]]</span>, find the products <span class="math">AB</span> and <span class="math">BA</span>. Are they equal?</p>
+<p class="ar"><b>السؤال.</b> لنفس المصفوفتين <span class="math">A = [[2, 1], [0, 3]]</span> و<span class="math">B = [[1, −1], [4, 2]]</span>، أوجد حاصل الضرب <span class="math">AB</span> و<span class="math">BA</span>. هل هما متساويان؟</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Compute AB / احسب AB</div>
+<p class="en">Row 1 of <span class="math">A</span> times column 1 of <span class="math">B</span>: <span class="math">2(1) + 1(4) = 6</span>; row 1 times column 2: <span class="math">2(−1) + 1(2) = 0</span>. Row 2 times column 1: <span class="math">0(1) + 3(4) = 12</span>; row 2 times column 2: <span class="math">0(−1) + 3(2) = 6</span>.</p>
+<p class="ar">الصف الأول من <span class="math">A</span> في العمود الأول من <span class="math">B</span>: <span class="math">2(1) + 1(4) = 6</span>؛ الصف الأول في العمود الثاني: <span class="math">2(−1) + 1(2) = 0</span>. الصف الثاني في العمود الأول: <span class="math">0(1) + 3(4) = 12</span>؛ الصف الثاني في العمود الثاني: <span class="math">0(−1) + 3(2) = 6</span>.</p>
+<div class="eq">
+AB =
+<table class="mat"><tr><td>6</td><td>0</td></tr><tr><td>12</td><td>6</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Compute BA / احسب BA</div>
+<div class="eq">
+BA =
+<table class="mat"><tr><td>1(2) + (−1)(0)</td><td>1(1) + (−1)(3)</td></tr><tr><td>4(2) + 2(0)</td><td>4(1) + 2(3)</td></tr></table>
+=
+<table class="mat"><tr><td>2</td><td>−2</td></tr><tr><td>8</td><td>10</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Compare / قارن</div>
+<p class="en">The entries are different, so <span class="math">AB ≠ BA</span>. Matrix multiplication is not commutative in general.</p>
+<p class="ar">العناصر مختلفة، إذن <span class="math">AB ≠ BA</span>. وضرب المصفوفات ليس إبداليًا بشكل عام.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">AB = [[6, 0], [12, 6]]</span> and <span class="math">BA = [[2, −2], [8, 10]]</span>. They are <b>not equal</b>.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">AB = [[6, 0], [12, 6]]</span> و<span class="math">BA = [[2, −2], [8, 10]]</span>. وهما <b>غير متساويين</b>.</p>
+</div>
+
+<h3>Q17 <span class="topic">Matrices</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Let <span class="math">A = [[2, 1], [0, 3]]</span> and let <span class="math">I</span> be the <span class="math">2 × 2</span> unit matrix. Evaluate <span class="math">A² − 5A + 6I</span>.</p>
+<p class="ar"><b>السؤال.</b> لتكن <span class="math">A = [[2, 1], [0, 3]]</span> و<span class="math">I</span> مصفوفة الوحدة <span class="math">2 × 2</span>. احسب <span class="math">A² − 5A + 6I</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Compute A² / احسب A²</div>
+<div class="eq">
+A² = AA =
+<table class="mat"><tr><td>2</td><td>1</td></tr><tr><td>0</td><td>3</td></tr></table>
+<table class="mat"><tr><td>2</td><td>1</td></tr><tr><td>0</td><td>3</td></tr></table>
+=
+<table class="mat"><tr><td>4</td><td>5</td></tr><tr><td>0</td><td>9</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Compute 5A and 6I / احسب 5A و6I</div>
+<div class="eq">
+5A =
+<table class="mat"><tr><td>10</td><td>5</td></tr><tr><td>0</td><td>15</td></tr></table>
+&nbsp;&nbsp;&nbsp;
+6I =
+<table class="mat"><tr><td>6</td><td>0</td></tr><tr><td>0</td><td>6</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Combine / اجمع</div>
+<div class="eq">
+A² − 5A + 6I =
+<table class="mat"><tr><td>4 − 10 + 6</td><td>5 − 5 + 0</td></tr><tr><td>0 − 0 + 0</td><td>9 − 15 + 6</td></tr></table>
+=
+<table class="mat"><tr><td>0</td><td>0</td></tr><tr><td>0</td><td>0</td></tr></table>
+</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">A² − 5A + 6I = [[0, 0], [0, 0]]</span>, the zero matrix. (This is an example of the Cayley–Hamilton theorem: the eigenvalues of <span class="math">A</span> are 2 and 3, so <span class="math">(A − 2I)(A − 3I) = 0</span>.)</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">A² − 5A + 6I = [[0, 0], [0, 0]]</span>، أي المصفوفة الصفرية. (وهذا تطبيق لنظرية كايلي–هاملتون: القيم الذاتية للمصفوفة <span class="math">A</span> هي 2 و3، لذا <span class="math">(A − 2I)(A − 3I) = 0</span>.)</p>
+</div>
+
+<h3>Q18 <span class="topic">Eigenvalues</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Find the characteristic equation and the eigenvalues of <span class="math">C = [[4, 1], [2, 3]]</span>.</p>
+<p class="ar"><b>السؤال.</b> أوجد المعادلة المميزة والقيم الذاتية للمصفوفة <span class="math">C = [[4, 1], [2, 3]]</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Form C − λI / كوّن C − λI</div>
+<div class="eq">
+C − λI =
+<table class="mat"><tr><td>4 − λ</td><td>1</td></tr><tr><td>2</td><td>3 − λ</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Set the determinant to zero / ساوِ المحدد بالصفر</div>
+<div class="eq">det(C − λI) = (4 − λ)(3 − λ) − (1)(2) = 0</div>
+<div class="eq">12 − 4λ − 3λ + λ² − 2 = 0</div>
+<div class="eq">λ² − 7λ + 10 = 0</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Solve / حلّ</div>
+<div class="eq">(λ − 5)(λ − 2) = 0 &nbsp; ⇒ &nbsp; λ = 5 &nbsp; or &nbsp; λ = 2</div>
+<p class="en">Check: trace <span class="math">= 4 + 3 = 7 = 5 + 2</span> ✓; determinant <span class="math">= 12 − 2 = 10 = 5 × 2</span> ✓.</p>
+<p class="ar">تحقق: الأثر <span class="math">= 4 + 3 = 7 = 5 + 2</span> ✓؛ المحدد <span class="math">= 12 − 2 = 10 = 5 × 2</span> ✓.</p>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> Characteristic equation <span class="math">λ² − 7λ + 10 = 0</span>; eigenvalues <span class="math">λ = 5</span> and <span class="math">λ = 2</span>.</p>
+<p class="ar"><b>الإجابة:</b> المعادلة المميزة <span class="math">λ² − 7λ + 10 = 0</span>؛ والقيم الذاتية <span class="math">λ = 5</span> و<span class="math">λ = 2</span>.</p>
+</div>
+
+<h3>Q19 <span class="topic">Eigenvalues</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Find the eigenvalues of <span class="math">D = [[2, 0, 0], [0, 3, 4], [0, 4, 9]]</span>.</p>
+<p class="ar"><b>السؤال.</b> أوجد القيم الذاتية للمصفوفة <span class="math">D = [[2, 0, 0], [0, 3, 4], [0, 4, 9]]</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Recognise the block form / تعرّف على الصورة الكتلية</div>
+<p class="en">The matrix is block diagonal: a <span class="math">1 × 1</span> block <span class="math">[2]</span> and a <span class="math">2 × 2</span> block <span class="math">[[3, 4], [4, 9]]</span>. The eigenvalues are the eigenvalues of the blocks.</p>
+<p class="ar">المصفوفة كتلية قطرية: كتلة <span class="math">1 × 1</span> هي <span class="math">[2]</span> وكتلة <span class="math">2 × 2</span> هي <span class="math">[[3, 4], [4, 9]]</span>. والقيم الذاتية هي القيم الذاتية لكل كتلة.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Eigenvalue from the 1 × 1 block / القيمة الذاتية من الكتلة 1 × 1</div>
+<div class="eq">λ₁ = 2</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Eigenvalues from the 2 × 2 block / القيم الذاتية من الكتلة 2 × 2</div>
+<div class="eq">det([[3 − λ, 4], [4, 9 − λ]]) = (3 − λ)(9 − λ) − 16 = 0</div>
+<div class="eq">27 − 3λ − 9λ + λ² − 16 = 0</div>
+<div class="eq">λ² − 12λ + 11 = 0</div>
+<div class="eq">(λ − 1)(λ − 11) = 0 &nbsp; ⇒ &nbsp; λ = 1 &nbsp; or &nbsp; λ = 11</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> The eigenvalues are <span class="math">λ = 2, 1, 11</span>.</p>
+<p class="ar"><b>الإجابة:</b> القيم الذاتية هي <span class="math">λ = 2, 1, 11</span>.</p>
+</div>
+
+<h3>Q20 <span class="topic">Eigenvectors</span></h3>
+<div class="qbox">
+<p class="en"><b>Question.</b> Find an eigenvector of <span class="math">C = [[4, 1], [2, 3]]</span> corresponding to the eigenvalue <span class="math">λ = 5</span>.</p>
+<p class="ar"><b>السؤال.</b> أوجد متجهًا ذاتيًا للمصفوفة <span class="math">C = [[4, 1], [2, 3]]</span> الموافق للقيمة الذاتية <span class="math">λ = 5</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 1 / الخطوة 1 — Form C − 5I / كوّن C − 5I</div>
+<div class="eq">
+C − 5I =
+<table class="mat"><tr><td>4 − 5</td><td>1</td></tr><tr><td>2</td><td>3 − 5</td></tr></table>
+=
+<table class="mat"><tr><td>−1</td><td>1</td></tr><tr><td>2</td><td>−2</td></tr></table>
+</div>
+</div>
+
+<div class="step">
+<div class="step-title">Step 2 / الخطوة 2 — Solve (C − 5I)v = 0 / حل (C − 5I)v = 0</div>
+<p class="en">Let <span class="math">v = [x, y]ᵀ</span>. Then</p>
+<p class="ar">لتكن <span class="math">v = [x, y]ᵀ</span>. إذن</p>
+<div class="eq">−x + y = 0 &nbsp;&nbsp; and &nbsp;&nbsp; 2x − 2y = 0</div>
+<p class="en">Both equations give <span class="math">y = x</span>. Choosing <span class="math">x = 1</span> gives <span class="math">y = 1</span>.</p>
+<p class="ar">كلتا المعادلتين تعطيان <span class="math">y = x</span>. باختيار <span class="math">x = 1</span> نحصل على <span class="math">y = 1</span>.</p>
+</div>
+
+<div class="step">
+<div class="step-title">Step 3 / الخطوة 3 — Check / تحقق</div>
+<div class="eq">
+C
+<table class="mat"><tr><td>1</td></tr><tr><td>1</td></tr></table>
+=
+<table class="mat"><tr><td>5</td></tr><tr><td>5</td></tr></table>
+= 5
+<table class="mat"><tr><td>1</td></tr><tr><td>1</td></tr></table>
+</div>
+</div>
+
+<div class="answer">
+<p class="en"><b>Answer:</b> <span class="math">v = [1, 1]ᵀ</span> is an eigenvector. Any non-zero multiple, such as <span class="math">[2, 2]ᵀ</span> or <span class="math">[−1, −1]ᵀ</span>, is also correct.</p>
+<p class="ar"><b>الإجابة:</b> <span class="math">v = [1, 1]ᵀ</span> متجه ذاتي. وأي مضاعف غير صفري له، مثل <span class="math">[2, 2]ᵀ</span> أو <span class="math">[−1, −1]ᵀ</span>، صحيح أيضًا.</p>
+</div>
+
+<h2 class="section">Answers at a glance / جدول الإجابات</h2>
+
+<table class="summary">
+<tr>
+  <th style="width:52px">Q</th>
+  <th style="width:150px">Topic / الموضوع</th>
+  <th>Final answer / الإجابة النهائية</th>
+</tr>
+<tr><td class="q">1</td><td>Partial fractions</td><td><span class="math">11/[6(x + 4)] − 5/[6(x − 2)]</span></td></tr>
+<tr><td class="q">2</td><td>Partial fractions</td><td><span class="math">2/x + 9/[5(x + 2)] + 1/[5(x − 3)]</span></td></tr>
+<tr><td class="q">3</td><td>Partial fractions</td><td><span class="math">x + 1/[2(x − 1)] + 1/[2(x + 1)]</span></td></tr>
+<tr><td class="q">4</td><td>Partial fractions</td><td><span class="math">x/(x² + 1) − x/(x² + 2)</span></td></tr>
+<tr><td class="q">5</td><td>Polynomial division</td><td><span class="math">Q = 2x² + 6x + 12</span>, <span class="math">R = 31</span></td></tr>
+<tr><td class="q">6</td><td>Remainder theorem</td><td><span class="math">k = 11</span></td></tr>
+<tr><td class="q">7</td><td>Roots</td><td><span class="math">x³ − 9x² + 36x − 216 = 0</span></td></tr>
+<tr><td class="q">8</td><td>Remainder theorem</td><td><span class="math">1</span></td></tr>
+<tr><td class="q">9</td><td>Roots</td><td><span class="math">y⁴ − 9y³ + 20y² = 0</span>; roots <span class="math">x = −2</span> (double), <span class="math">2, 3</span></td></tr>
+<tr><td class="q">10</td><td>Binomial</td><td><span class="math">1 + 2x + 3x² + 4x³ + …</span>, <span class="math">|x| &lt; 1</span></td></tr>
+<tr><td class="q">11</td><td>Binomial</td><td><span class="math">1/4 − 3x/4 + 27x²/16 − 27x³/8 + …</span>, <span class="math">|x| &lt; 2/3</span></td></tr>
+<tr><td class="q">12</td><td>Binomial</td><td><span class="math">3<sup>0.1</sup>[1 + x/5 − 9x²/50 + 57x³/250 + …]</span>, <span class="math">|x| &lt; 1/2</span></td></tr>
+<tr><td class="q">13</td><td>Binomial</td><td><span class="math">a = −1</span>, <span class="math">b = 1/3</span>, <span class="math">c = 7/9</span></td></tr>
+<tr><td class="q">14</td><td>Binomial</td><td><span class="math">2/3 − 8x/9 + 26x²/27 + …</span>, <span class="math">|x| &lt; 1</span></td></tr>
+<tr><td class="q">15</td><td>Matrices</td><td><span class="math">A + B = [[3, 0], [4, 5]]</span></td></tr>
+<tr><td class="q">16</td><td>Matrices</td><td><span class="math">AB = [[6, 0], [12, 6]]</span>, <span class="math">BA = [[2, −2], [8, 10]]</span>; not equal</td></tr>
+<tr><td class="q">17</td><td>Matrices</td><td><span class="math">A² − 5A + 6I = [[0, 0], [0, 0]]</span></td></tr>
+<tr><td class="q">18</td><td>Eigenvalues</td><td><span class="math">λ² − 7λ + 10 = 0</span>; <span class="math">λ = 5, 2</span></td></tr>
+<tr><td class="q">19</td><td>Eigenvalues</td><td><span class="math">λ = 2, 1, 11</span></td></tr>
+<tr><td class="q">20</td><td>Eigenvectors</td><td><span class="math">v = [1, 1]ᵀ</span> (any non-zero multiple)</td></tr>
+</table>
+
+<div class="note" style="margin-top:26px">
+<p class="en"><b>Revision tips:</b> In partial fractions, always factor the denominator completely and check your answer by comparing coefficients. For the binomial expansion, write the bracket as <span class="math">(1 + u)<sup>n</sup></span> before using the formula, and never forget the validity condition <span class="math">|u| &lt; 1</span>. For matrices, check that the orders allow the product, and remember <span class="math">AB ≠ BA</span> in general.</p>
+<p class="ar"><b>نصائح للمراجعة:</b> في الكسور الجزئية، حلّل المقام تحليلًا كاملًا وتحقق من الإجابة بمقارنة المعاملات. وفي مفكوك ذات الحدين، اكتب القوس على الصورة <span class="math">(1 + u)<sup>n</sup></span> قبل استخدام القانون، ولا تنسَ شرط الصلاحية <span class="math">|u| &lt; 1</span>. وفي المصفوفات، تحقق من أن الرتب تسمح بالضرب، وتذكّر أن <span class="math">AB ≠ BA</span> بشكل عام.</p>
+</div>
+
+<p class="subtitle" style="margin-top:30px">End of solutions — Good luck with your revision!<br>نهاية الحلول — بالتوفيق في مراجعتك!</p>
+</div>
+</body>
+</html>
